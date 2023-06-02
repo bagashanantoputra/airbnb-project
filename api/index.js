@@ -78,7 +78,7 @@ app.get('/profile', async (req, res) => {
       try {
         const userDoc = await User.findById(userData.id);
         res.json(userDoc);
-      } catch (error) {
+      } catch (error) { 
         console.error(error);
         res.status(500).send('Server Error');
       }

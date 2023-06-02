@@ -2,6 +2,8 @@ import { Link, Navigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import axios from "axios";
 import { UserContext } from "../UserContext";
+import Swal from "sweetalert2";
+
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -18,7 +20,11 @@ function LoginPage() {
         password
       });
       setUser(data);
-      alert('Login Successful');
+      Swal.fire(
+        'Login Success!',
+        'You clicked the button!',
+        'success'
+      )
       setRedirect(true);
     } catch (error) {
       alert('Login Failed'); // log error
